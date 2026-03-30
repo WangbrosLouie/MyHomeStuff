@@ -1,0 +1,102 @@
+body {
+    background: top left repeat url(backgrnd.gif);
+    color: white;
+}
+
+div.header {
+    margin: 1em 0em;
+}
+
+a.pagebanner {
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 1em 0em;
+    border: 1px solid white;
+    border-bottom: none;
+    border-radius: 3px 3px 0px 0px;
+
+    background: top left repeat url(scanline.gif);
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+div.nav {
+    display: block;
+    width: 90%;
+    margin: auto;
+    border: 1px solid white;
+    border-radius: 0px 0px 3px 3px;
+    background-color: navy;
+
+    text-align: center;
+    color: grey;
+}
+
+a.nav {
+    color: white;
+    text-decoration: none;
+}
+
+div.titlebar {
+    width: 90%;
+    display: block;
+    margin: auto;
+    border: 1px solid white;
+    border-bottom: none;
+    border-radius: 3px 3px 0px 0px;
+    background-color: blue;
+
+    text-align: center;
+}
+
+div.wrapper {
+    width: 90%;
+    display: block;
+    margin: auto;
+
+    border: 1px solid white;
+    border-radius: 0px 0px 3px 3px;
+    background-color: grey;
+}
+
+div.main {
+    display: block;
+    margin: 0 0.5em;
+    padding: 1em 0em;
+}
+
+td.sidenav {
+    width: 15%;
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 1px solid black;
+    border-radius: 3px;
+    vertical-align: top;
+}
+
+td.main {
+    width: 75%
+    vertical-align: top;
+}
+
+div.cringewarning {
+    color: yellow;
+}
+
+div.footer {
+    width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 1em;
+    border: 1px solid white;
+    border-radius: 3px;
+    background-color: gray;
+
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
