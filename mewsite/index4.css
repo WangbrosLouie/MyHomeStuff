@@ -3,7 +3,7 @@ body {
     color: white;
 }
 
-header {
+div.header {
     margin: 1em 0em;
 }
 
@@ -24,7 +24,7 @@ a.pagebanner {
     text-decoration: none;
 }
 
-nav {
+div.nav {
     display: block;
     width: 90%;
     margin: auto;
