@@ -5,21 +5,50 @@
     <title>MyHomeStuff</title>
 
     <style>
+        html {background: lightblue;}
+
         body {margin: 2%;
             border: 1px solid black;}
         div.titlebar {background:navy;
             color:white;
             height: 2em;
-            width: 100%;
+            /*width: 100%;*/
+            padding: 0.5em;
             font-weight: bold;
             font-family: Terminal, Unifont, Arial, 'Times New Roman';}
-        div.content {padding: 1em;}
+        div.content {background: #add8e6;
+            background: url("backing.png") repeat;
+            padding: 1em;}
 
-        a.navlink {font-size: 2em;
-        }
-        div.navlink {width: 15em;
+        span.links {font-size: 1.5em;
+            padding-left: 1em;
+            padding-right: 10%;
+            background-image: url("links_a.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid white;
             display: inline-block;}
+        div.navscrolly {border-top: 1px solid white;
+            background: rgba(255,255,255,0.6);
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            height: 38.4px;}
+        a.navlink {font-size: 2em;}
+        img.navimg {vertical-align: center;}
+        span.navlink {/*width: 15em;*/
+            padding-right: 0.5em;
+            display: inline-block;
+            border-right:1px solid black;
+            border-radius: 0em 1em 1em 0em;}
 
+        main {background: lightgrey;
+        padding: 1em;}
+
+        aside.sitechanges {background: white;
+            width: 30%;
+            float: right;
+            padding: 1em;}
         a.topbar {text-decoration:none;color:white;font-weight:bold;width:100%;height:100%;display:block;}
         a.topbar:hover {color:rgba(255,255,255,0.8);}
         a.topba {text-decoration:none;color:black;font-weight:bold;width:100%;height:100%;display:block;}
@@ -40,27 +69,18 @@
 
 <body>
 
-<div class="titlebar">Meowertopia</div>
+<div class="titlebar"><h2 style="margin:0px;">Meowertopia</h2></div>
 
 <div class="content">
 
     <nav>
 
-        <span style="font-size:1em;">Links</span>
-
-        <div style="overflow-x:auto;">
-
-            <div class="navlink"><a class="navlink" href="index.htm">HTML 4 Home</a></div>
-            <div class="navlink"><a class="navlink" href="zaburogu/index.htm">za burogu</a></div>
-
-        </div>
-
-        <table style="width:100%;border-collapse:collapse;"><tbody>
+        <!-- <table style="width:100%;border-collapse:collapse;"><tbody>
 
         <tr>
             <td class="topbar" style="background-color:grey;"><a href="index.htm" class="topbar">html4 home</a></td>
             <td class="topbar" style="background-color:#3FDFEF;"><a href="zaburogu/index.html" class="topbar">za burogu</a></td>
-            <td class="topbar" style="background-color:orange;"><a href="listeningmusics/index.html" class="topbar">listeningmusics</a></td>
+            <td class="topbar" style="background-color:#ffa500;"><a href="listeningmusics/index.html" class="topbar">listeningmusics</a></td>
             <td class="topbar" style="background-color:white;"><a href="https://github.com/WangbrosLouie/MyHomeStuff" class="topba">repository</a></td>
         </tr>
 
@@ -71,17 +91,64 @@
             <td class="topbar" style="background-color:white;"><a href="https://wangbroslouie.github.io/MySchoolStuff/index.html" class="topba">MySchoolStuff</a></td>
         </tr>
 
-        </tbody></table>
+        </tbody></table>-->
+
+
+        <span class="links">Links</span>
+
+        <div class="navscrolly">
+
+            <a class="navlink" href="index.htm"><span class="navlink" style="background:gray"><img src="html4hpg.png" alt="HTML 4 Home" title="HTML 4 Homepage" class="navimg"></span></a
+            ><a class="navlink" href="zaburogu/index.htm"><span class="navlink" style="background:#3FDFEF"><img src="zaburogu.png" alt="za burogu" title="zaburogu" class="navimg"></span></a
+            ><a class="navlink" href="listeningmusics/index.htm"><span class="navlink" style="background:orange"><img src="lismusic.png" alt="listeningmusics" title="listeningmusics" class="navimg"></span></a
+            ><a class="navlink" href="https://github.com/WangbrosLouie/MyHomeStuff"><span class="navlink" style="background:white"><img src="gitrepo.png" alt="repository" title="GitHub Repository" class="navimg"></span></a
+            ><a class="navlink" href="Phighting!/index.html"><span class="navlink" style="background:white"><img src="phightin.png" alt="take me to the old phighting page!" title="Phighting FanPage" class="navimg"></span></a
+            ><a class="navlink" href="LIFEKITT/INDEX.HTM"><span class="navlink" style="background:#AFEFFF"><img src="lifekitt.png" alt="read my &quot;book&quot;" title="My Life With Kitters" class="navimg"></span></a
+            ><a class="navlink" href="mewsite/index.html"><span class="navlink" style="background:navy"><img src="mewsite.png" alt="lookit me headspace infobase" title="MEW Infobase" class="navimg"></span></a
+            ><a class="navlink" href="https://wangbroslouie.github.io/MySchoolStuff/index.html"><span class="navlink" style="background:white"><img src="myschool.png" alt="MySchoolStuff" title="MySchoolStuff" class="navimg"></span></a>
+
+        </div>
     </nav>
 
-    <div class="titlebar" style="font-size:1.5em">Warning: This page is currently under a reconstruction so it will look broken for a little bit while I finish it up. All of the links still work.</div>
+    <aside class="sitechanges">
+        <h2>Site Changes (d/m/y)</h2>
+        <ul>
+            <li>add/move cookie center to here</li>
+            <li>re-do the music page</li>
+            <li>make musicjs</li>
+            <li>make each blog entry a separate page (and make legacy blog page where its all one big blob like before)</li>
+            <li>style the home page to be cool - 6/7/26</li>
+            <li>write a home page yap - 6/7/26</li>
+            <li>finish this site changes section (especially that weird sticky outy bit)</li>
+            <li>make a site changes - 6/7/26</li>
+        </ul>
+    </aside>
 
+    <main>
     <h1 style="width:100%;text-align:center;">h o m e</h1>
-    hello all you people. witness the glory that is my github repository.<br>
-    this used to be a place where i put all of my code that i wrote for my programming course, but thats over now. now i just code whatever suits my fancy, like this collection of webpages (although its not really programming). i also blog on the blog page (za burogu) and make music (listeningmusics). my head is starting to spin for some reason so im gonna finish writing this stuff later. bye.<br>
-    p.s. the advantage of using such primitive html is that i can even view this page in most of its glory with lynx the text based web browser. if i for some reason only had a computer with the ibm mda as its "gpu" then i could still view these pages perfectly fine.<br>
+    
+    <p>
+        Hello all you people. Witness the glory that is my home stuff.
+    </p>
+
+    <p>
+        This place is for all of my fooling around and stuff, along with some of my personal projects, which currently consist of music, drawing, and writing random stuff.
+    </p>
+
+    <p>
+        I have spruced this page up a lot from the HTML 4 (originally html 5) version of it, but if you still want to see it, hey, I have a new cool link bar to replace that old cool one, and the old homesite is the first link.
+    </p>
+
+    <p>
+        Since this is very HTML 5 (definitely), I now have zero guarantees that this page will work in the browser of your choice. Like, even just on my computer, GNOME Web and Firefox display the curves on the navbar differently. Who knows what will happen if (when) I try seeing this page in IE 6. Or 5. Or 4, or 3, or 2 or 1 or just NCSA Mosaic, or a text based browser. Who knows. Future me, that's who.
+    </p>
+
+    </main>
+
+    <footer>
     <h3>Every page made with Windows Notepad, Kate and Visual Studio Code</h3>
     <h6>i <i>wish</i> i had the patience to be able to make every page with edlin</h6>
+    </footer>
  
 </div>
 </body>
