@@ -5,10 +5,14 @@
     <title>MyHomeStuff</title>
 
     <style>
+        /* frame stuff */
         html {background: lightblue;}
-
         body {margin: 2%;
             border: 1px solid black;}
+        div.content {background: #add8e6; /* meower is physically incapable of not adding a fallback case for old browsers*/
+            background: url("backing.png") repeat;
+            padding: 1em;
+            overflow: hidden;}
         div.titlebar {background:navy;
             color:white;
             height: 2em;
@@ -16,10 +20,8 @@
             padding: 0.5em;
             font-weight: bold;
             font-family: Terminal, Unifont, Arial, 'Times New Roman';}
-        div.content {background: #add8e6;
-            background: url("backing.png") repeat;
-            padding: 1em;}
 
+        /* nav stuff */
         span.links {font-size: 1.5em;
             padding-left: 1em;
             padding-right: 10%;
@@ -42,14 +44,22 @@
             border-right:1px solid black;
             border-radius: 0em 1em 1em 0em;}
 
+        /* body stuff */
         main {background: lightgrey;
-        padding: 1em;}
-
+            width: calc(70% - 4em);
+            float: left;
+            padding: 1em;}
         aside.sitechanges {background: white;
             width: 30%;
             float: right;
             padding: 1em;}
-        a.topbar {text-decoration:none;color:white;font-weight:bold;width:100%;height:100%;display:block;}
+
+        /* footer */
+        footer {width: calc(70% - 4em);
+            float: left;
+            vertical-align: bottom;}
+
+        /*a.topbar {text-decoration:none;color:white;font-weight:bold;width:100%;height:100%;display:block;}
         a.topbar:hover {color:rgba(255,255,255,0.8);}
         a.topba {text-decoration:none;color:black;font-weight:bold;width:100%;height:100%;display:block;}
         a.topba:hover {color:rgba(0,0,0,0.5);}
@@ -110,29 +120,22 @@
         </div>
     </nav>
 
-    <aside class="sitechanges">
-        <h2>Site Changes (d/m/y)</h2>
-        <ul>
-            <li>update all of the links to the new homepage names</li>
-            <li>finish old homepage redirect</li>
-            <li>make old blog html 4 compliant</li>
-            <li>add photos supplementary page to blog</li>
-            <li>add a blender models page maybe</li>
-            <li>make this page mobile friendly</li>
-            <li>add/move cookie center to here</li>
-            <li>re-do the music page</li>
-            <li>make musicjs</li>
-            <li>make each blog entry a separate page (and make legacy blog page where its all one big blob like before)</li>
-            <li>style the home page to be cool - 6/7/26</li>
-            <li>write a home page yap - 6/7/26</li>
-            <li>finish this site changes section (especially that weird sticky outy bit)</li>
-            <li>make a site changes - 6/7/26</li>
-        </ul>
-    </aside>
-
     <main>
-    <h1 style="width:100%;text-align:center;">h o m e</h1>
+    <h1 style="/*width:100%;*/text-align:center;">h o m e</h1>
     
+    <h2>Home Page Yap - 7/7/2026</h2>
+
+    <p>"Site updates? But we've already made a site updates section."</p>
+    <p>"Yes, but what about second site updates?"</p>
+
+    <p>Yes yes, I am making this into another site updates bit. This one is gonna be more textual and verbose compared to the to-do roadmap thingy-ness of the one on the right, so it's easier to read. I am also not gonna sort the one on the right in chronological completed order, I'm doing it in chronologically started order. As in they're there in the order that I first put them there. So anyways. I have made the site's "content" div actually stretch vertically, so that the to-do list doesn't go off screen, or rather off div. That is not the weird sticky outy bit that I noted in the roadmap site changes. That one was when I had the &lt;aside&gt; before &lt;main&gt;, and that caused the aside to appear like 1 em above main, which isn't right. That's changed now though, as now I use float for everything instead of whatever I was doing before to mash the roadmap site changes next to main. And oh yes, I forgot to mention, since this is a very HTML 5 page, I'm using &lt;aside&gt; and &lt;main&gt; and stuff instead of &lt;div class="main"&gt; and stuff like that. I'm only doing that for the frame of this page and some other small stuff. So yeah, I think that's pretty much. The new navbar is cool ain't it?</p>
+
+    <p>" 'w' " - Meower :3</p>
+
+    <hr>
+
+    <h2>Home Page Yap - 6/7/2026</h2>
+
     <p>
         Hello all you people. Witness the glory that is my home stuff.
     </p>
@@ -151,9 +154,30 @@
 
     </main>
 
+    <aside class="sitechanges">
+        <h2>Site Changes (d/m/y)</h2>
+        <ul>
+            <li>update all of the links to the new homepage names - 7/7/26</li>
+            <li>finish old homepage redirect</li>
+            <li>make old blog html 4 compliant</li>
+            <li>add photos supplementary page to blog</li>
+            <li>add a blender models page maybe</li>
+            <li>make this page mobile friendly</li>
+            <li>add/move cookie center to here</li>
+            <li>re-do the music page</li>
+            <li>make musicjs</li>
+            <li>make each blog entry a separate page (and make legacy blog page where its all one big blob like before)</li>
+            <li>style the home page to be cool - 6/7/26</li>
+            <li>write a home page yap - 6/7/26</li>
+            <li>finish this site changes section (especially that weird sticky outy bit) - 7/7/26</li>
+            <li>make a site changes - 6/7/26</li>
+        </ul>
+    </aside>
+
     <footer>
-    <h3>Every page made with Windows Notepad, Kate and Visual Studio Code</h3>
-    <h6>i <i>wish</i> i had the patience to be able to make every page with edlin</h6>
+        <h3>Every page made with Windows Notepad, Kate and Visual Studio Code</h3>
+        <h6>i <i>wish</i> i had the patience to be able to make every page with edlin</h6>
+        <pre>(m) Copycat 2026 Meower :3 (a.k.a. WangbrosLouie)</pre>
     </footer>
  
 </div>
