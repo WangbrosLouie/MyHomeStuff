@@ -11,10 +11,67 @@ a.topba {text-decoration:none;color:black;font-weight:bold;width:100%;height:100
 a.topba:hover {color:rgba(0,0,0,0.5);}
 td.topbar {width:25%;font-size:2em;text-align:center;}
 body {background-color:lightgrey;}
+#popup {position:absolute;top:10%;left:10%;right:10%;background:white;padding:2em;}
+div.buttonyes {background:greenyellow;width:40%;padding:5%;display:inline-block;font-size:4em;text-align:center;}
+div.buttonyes:hover {background:green;}
+div.buttonno {background:crimson;width:40%;padding:5%;display:inline-block;font-size:4em;text-align:center;}
+div.buttonno:hover {background:darkred;}
+#cookieCheckBox {display:inline-block;width:4em;height:4em;background:lightgray;text-align:center;vertical-align:middle;}
+#cookieCheckBox:hover {background:gray;}
+div.cookiebox {display:inline-block;width:auto;height:auto;vertical-align:middle;}
 /* why the meow do returns count as spaces... */
 --></style>
+<script type="text/javascript">
+<!--
+let saveCookie = false;
+function showPopUp(body) {
+let popup = document.createElement("div");
+popup.innerHTML = "<h1>Halt!</h1>Your browser seems new enough to display the HTML 5 homepage. Do you wish to go there? (Yes this page is HTML 4 don't judge me)<br><br>";
+popup.setAttribute("id", "popup");
+
+let buttonYes = document.createElement("div");
+buttonYes.setAttribute("onClick","redirect()");
+buttonYes.setAttribute("class","buttonyes")
+buttonYes.innerHTML = "Yes!";
+popup.appendChild(buttonYes);
+
+let buttonNo = document.createElement("div");
+buttonNo.setAttribute("onClick","removePopUp()");
+buttonNo.setAttribute("class","buttonno")
+buttonNo.innerHTML = "No.";
+popup.appendChild(buttonNo);
+
+let cookieBox = document.createElement("div");
+let checkBox = document.createElement("div");
+let checkBoxText = document.createElement("div");
+checkBoxText.innerHTML = "yes";
+checkBoxText.setAttribute("style","display:inline-block;font-size:2em;");
+checkBox.appendChild(checkBoxText);
+checkBox.setAttribute("id","cookieCheckBox");
+checkBox.setAttribute("onClick","flipCookie()");
+cookieBox.appendChild(document.createElement("br"));
+cookieBox.appendChild(document.createElement("br"));
+cookieBox.appendChild(checkBox);
+cookieBox.innerHTML += " Save a cookie to skip this message next time (CURRENTLY NONFUNCTIONAL)";
+cookieBox.setAttribute("class","cookiebox")
+popup.appendChild(cookieBox);
+
+body.appendChild(popup);
+}
+
+function redirect() {
+    window.location.href="index5.html";
+}
+
+function removePopUp() {
+    document.getElementById("popup").remove();
+}
+
+//TO-DO: add like all the cookie stuff
+-->
+</script>
 </head>
-<body>
+<body onLoad="showPopUp(document.getElementsByTagName('body')[0])">
 <div style="width:100%;padding:0;">
 <table style="width:100%;border-collapse:collapse;"><tbody>
 <tr>
