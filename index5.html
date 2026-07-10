@@ -40,10 +40,11 @@
             white-space: nowrap;
             height: 38.4px;}
         a.navlink {font-size: 2em;}
-        img.navimg {vertical-align: center;}
+        /* img.navimg {vertical-align: middle;} */
         span.navlink {/*width: 15em;*/
             padding-right: 0.5em;
             display: inline-block;
+            vertical-align: top;
             border-right:1px solid black;
             border-radius: 0em 1em 1em 0em;}
         span.navlink:hover {filter: brightness(80%)}
@@ -79,7 +80,8 @@
             text-decoration: none;}
 
         /* body stuff */
-        main {background: lightgrey;
+        main {display: inline-block;
+            background: lightgrey;
             padding: 1em;}
         aside.sitechanges {background: white;
             padding: 1em;}
@@ -165,9 +167,13 @@
             ><a class="navlink" href="Phighting!/index.html"><span class="navlink" style="background:white"><img src="phightin.png" alt="take me to the old phighting page!" title="Phighting FanPage" class="navimg"></span></a
             ><a class="navlink" href="LIFEKITT/INDEX.HTM"><span class="navlink" style="background:#AFEFFF"><img src="lifekitt.png" alt="read my &quot;book&quot;" title="My Life With Kitters" class="navimg"></span></a
             ><a class="navlink" href="mewsite/index.html"><span class="navlink" style="background:navy"><img src="mewsite.png" alt="lookit me headspace infobase" title="MEW Infobase" class="navimg"></span></a
-            ><a class="navlink" href="https://wangbroslouie.github.io/MySchoolStuff/index.html"><span class="navlink" style="background:white"><img src="myschool.png" alt="MySchoolStuff" title="MySchoolStuff" class="navimg"></span></a>
+            ><a class="navlink" href="https://wangbroslouie.github.io/MySchoolStuff/index.html"><span class="navlink" style="background:white"><img src="myschool.png" alt="MySchoolStuff" title="MySchoolStuff" class="navimg"></span></a
+            ><a class="navlink" href="meoweres/index.html"><span class="navlink" style="background:white">Meowerese</span></a>
 
         </div>
+
+        <div style="background:black;color:white;text-align:center;">Psst, you can shift+scrollwheel to scroll horizontally (left to right)</div>
+
     </nav>
 
     <nav id="hamburger" class="mobile">
@@ -176,7 +182,7 @@
 
         <table id="hamburger-menu" style="width:100%;border-collapse:collapse;"><tbody>
 
-            <tr><td class="topbar" style="background:lightblue;"><div id="hamburger-back-button" onClick="hideHamburger();"><a class="topba">Back</a></div></td></tr>
+            <tr><td class="topbar" style="background:lightblue;"><div id="hamburger-back-button" onClick="hideHamburger();"><a class="topba">&lt;- Close Menu</a></div></td></tr>
             <tr><td class="topbar" style="background-color:grey;"><a href="index.htm" class="topbar">html4 home</a></td></tr>
             <tr></tr><td class="topbar" style="background-color:#3FDFEF;"><a href="zaburogu/index.html" class="topba">za burogu</a></td></tr>
             <tr></tr><td class="topbar" style="background-color:#ffa500;"><a href="listeningmusics/index.html" class="topbar">listeningmusics</a></td></tr>
@@ -185,6 +191,7 @@
             <tr><td class=topbar style="background-color:#AFEFFF;"><a href="LIFEKITT/INDEX.HTM" class="topba">read my "book"</a></td></tr>
             <tr><td class=topbar style="background-color:navy;"><a href="mewsite/index.html" class="topbar">lookit me headspace infobase</a></td></tr>
             <tr><td class="topbar" style="background-color:white;"><a href="https://wangbroslouie.github.io/MySchoolStuff/index.html" class="topba">MySchoolStuff</a></td></tr>
+            <tr><td class="topbar" style="background-color:white;"><a href="meoweres/index.html" class="topba">Meowerese</a></td></tr>
 
         </tbody></table>
 
@@ -227,10 +234,12 @@
     <aside class="sitechanges">
         <h2>Site Changes (d/m/y)</h2>
         <ul>
+            <li>make icon for meowerese page</li>
+            <li>make meowerese page not barren</li>
             <li>draw new images for the mobile hamburger menu maybe</li>
             <li>add cookie to choose what mobile menu style to use</li>
             <li>update the mobile hamburger menu here to use the images too - cancelled</li>
-            <li>make meowerese page</li>
+            <li>make meowerese page - 10/7/26</li>
             <li>update all of the links to the new homepage names - 7/7/26</li>
             <li>finish old homepage redirect</li>
             <li>make old blog html 4 compliant</li>
