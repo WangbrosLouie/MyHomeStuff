@@ -143,6 +143,10 @@
             hamburgerMenu.setAttribute("class","");
             hamburgerOpenButton.setAttribute("class","");
         }
+
+        function addCookie(key, value) {
+            document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + "; max-age=4204206969; path=/";
+        }
     </script>
 
 </head>
@@ -160,7 +164,7 @@
 
         <div class="navscrolly">
 
-            <a class="navlink" href="index.htm"><span class="navlink" style="background:gray"><img src="html4hpg.png" alt="HTML 4 Home" title="HTML 4 Homepage" class="navimg"></span></a
+            <a class="navlink" href="index.htm" onclick="addCookie('html5','no');"><span class="navlink" style="background:gray"><img src="html4hpg.png" alt="HTML 4 Home" title="HTML 4 Homepage" class="navimg"></span></a
             ><a class="navlink" href="zaburogu/index.html"><span class="navlink" style="background:#3FDFEF"><img src="zaburogu.png" alt="za burogu" title="zaburogu" class="navimg"></span></a
             ><a class="navlink" href="listeningmusics/index.html"><span class="navlink" style="background:orange"><img src="lismusic.png" alt="listeningmusics" title="listeningmusics" class="navimg"></span></a
             ><a class="navlink" href="https://github.com/WangbrosLouie/MyHomeStuff"><span class="navlink" style="background:white"><img src="gitrepo.png" alt="repository" title="GitHub Repository" class="navimg"></span></a
@@ -234,14 +238,16 @@
     <aside class="sitechanges">
         <h2>Site Changes (d/m/y)</h2>
         <ul>
+            <li>make the redirect cookie work for "No." too</li>
+            <li>polish up the meowerese page</li>
             <li>make icon for meowerese page</li>
-            <li>make meowerese page not barren</li>
+            <li>make meowerese page not barren - 10/7/26</li>
             <li>draw new images for the mobile hamburger menu maybe</li>
             <li>add cookie to choose what mobile menu style to use</li>
             <li>update the mobile hamburger menu here to use the images too - cancelled</li>
             <li>make meowerese page - 10/7/26</li>
             <li>update all of the links to the new homepage names - 7/7/26</li>
-            <li>finish old homepage redirect</li>
+            <li>finish old homepage redirect - 10/7/26</li>
             <li>make old blog html 4 compliant</li>
             <li>add photos supplementary page to blog</li>
             <li>add a blender models page maybe</li>

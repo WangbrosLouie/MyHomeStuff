@@ -23,8 +23,12 @@ div.cookiebox {display:inline-block;width:auto;height:auto;vertical-align:middle
 --></style>
 <script type="text/javascript">
 <!--
-let saveCookie = false;
+let saveCookie = true;
+
+parseCookies();
+
 function showPopUp(body) {
+
 let popup = document.createElement("div");
 popup.innerHTML = "<h1>Halt!</h1>Your browser seems new enough to display the HTML 5 homepage. Do you wish to go there? (Yes this page is HTML 4 don't judge me)<br><br>";
 popup.setAttribute("id", "popup");
@@ -52,7 +56,7 @@ checkBox.setAttribute("onClick","flipCookie()");
 cookieBox.appendChild(document.createElement("br"));
 cookieBox.appendChild(document.createElement("br"));
 cookieBox.appendChild(checkBox);
-cookieBox.innerHTML += " Save a cookie to skip this message next time (CURRENTLY NONFUNCTIONAL)";
+cookieBox.innerHTML += " Save a cookie to skip this message next time (doesn't work if you want the html4 page by default currently, sorry)";
 cookieBox.setAttribute("class","cookiebox")
 popup.appendChild(cookieBox);
 
@@ -60,14 +64,63 @@ body.appendChild(popup);
 }
 
 function redirect() {
-    window.location.href="index5.html";
+    if (saveCookie) {
+        addCookie("html5", "yes");
+    } else {
+        addCookie("html5", "no");
+    }
+    window.location.replace("index5.html");
 }
 
 function removePopUp() {
     document.getElementById("popup").remove();
 }
 
-//TO-DO: add like all the cookie stuff
+function flipCookie() {
+    saveCookie = !saveCookie;
+    document.getElementById("cookieCheckBox").innerHTML = saveCookie?"yes":"no";
+}
+
+function parseCookies() {
+    let cook = document.cookie;
+    if (cook != "") {
+        cook = cook.split(";");
+        for (value of cook) {
+            value = decodeURIComponent(value);
+            key = value.substring(0, value.indexOf("="));
+            value = value.substring(value.indexOf("=") + 1);
+            switch (key) {
+                case "skin":
+                    break;
+                case "html5":
+                    if (value == "yes") {
+                        window.location.replace("index5.html");
+                    }
+                    break;
+                default:
+                    console.log("some cookie business gone wrong, " + key + " and " + value + " dont bonk out right");
+            }
+        }
+    }
+}
+
+function addCookie(key, value) {
+    document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + "; max-age=4204206969; path=/";
+}
+
+function deleteCookie(key) {
+    document.cookie = encodeURIComponent(key) + "=; max-age=0; path=/;";
+}
+
+function deleteCookies() {
+    let cook = document.cookie;
+    cook = cook.split(";");
+    for (key of cook) {
+        key = decodeURIComponent(key);
+        key = key.substring(0, key.indexOf("="));
+        document.cookie = encodeURIComponent(key) + "=; max-age=0; path=/;";
+    }
+}
 -->
 </script>
 </head>
