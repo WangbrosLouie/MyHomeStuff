@@ -30,7 +30,7 @@ parseCookies();
 function showPopUp(body) {
 
 let popup = document.createElement("div");
-popup.innerHTML = "<h1>Halt!</h1>Your browser seems new enough to display the HTML 5 homepage. Do you wish to go there? (Yes this page is HTML 4 don't judge me)<br><br>";
+popup.innerHTML = "<h1>Halt!</h1>Your browser seems new enough to display the HTML 5 homepage. Do you wish to go there? (Yes this page is HTML 4 don't judge me)<br>p.s. You can click on the link back to the HTML 4 homepage to turn off the redirect at any time<br>";
 popup.setAttribute("id", "popup");
 
 let buttonYes = document.createElement("div");
@@ -56,7 +56,7 @@ checkBox.setAttribute("onClick","flipCookie()");
 cookieBox.appendChild(document.createElement("br"));
 cookieBox.appendChild(document.createElement("br"));
 cookieBox.appendChild(checkBox);
-cookieBox.innerHTML += " Save a cookie to skip this message next time (doesn't work if you want the html4 page by default currently, sorry)";
+cookieBox.innerHTML += " Save a cookie to skip this message next time";
 cookieBox.setAttribute("class","cookiebox")
 popup.appendChild(cookieBox);
 
@@ -66,13 +66,14 @@ body.appendChild(popup);
 function redirect() {
     if (saveCookie) {
         addCookie("html5", "yes");
-    } else {
-        addCookie("html5", "no");
     }
     window.location.replace("index5.html");
 }
 
 function removePopUp() {
+    if (saveCookie) {
+        addCookie("html5", "no");
+    }
     document.getElementById("popup").remove();
 }
 
@@ -95,6 +96,8 @@ function parseCookies() {
                 case "html5":
                     if (value == "yes") {
                         window.location.replace("index5.html");
+                    } else if (value == "no") {
+                        saveCookie = false;
                     }
                     break;
                 default:
@@ -124,11 +127,11 @@ function deleteCookies() {
 -->
 </script>
 </head>
-<body onLoad="showPopUp(document.getElementsByTagName('body')[0])">
+<body onLoad="if (saveCookie) showPopUp(document.getElementsByTagName('body')[0]);">
 <div style="width:100%;padding:0;">
 <table style="width:100%;border-collapse:collapse;"><tbody>
 <tr>
-<td class="topbar" style="background-color:grey;"><a href="index5.html" class="topbar">html5 home</a></td>
+<td class="topbar" style="background-color:grey;"><a href="index5.html" class="topbar" onClick="addCookie('html5','yes');">html5 home</a></td>
 <td class="topbar" style="background-color:#3FDFEF;"><a href="zaburogu/indexold.htm" class="topbar">za burogu</a></td>
 <td class="topbar" style="background-color:orange;"><a href="listeningmusics/index4.htm" class="topbar">listeningmusics</a></td>
 <td class="topbar" style="background-color:white;"><a href="https://github.com/WangbrosLouie/MyHomeStuff" class="topba">repository</a></td>

@@ -135,6 +135,9 @@ skin(value);
 if (!currentSkin == oldValue)addCookie(key,currentSkin);
 cookieSkin = true;
 break;
+case "html5":
+case "homeskin":
+break;
 default:
 console.log("some cookie business gone wrong, "+key+" and "+value+" dont bonk out right");
 }

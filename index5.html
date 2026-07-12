@@ -8,12 +8,15 @@
     <style>
         /* frame stuff */
         html {background: lightblue;}
+        html.night {background: black;}
         body {margin: 2%;
             border: 1px solid black;}
-        div.content {background: #add8e6; /* meower is physically incapable of not adding a fallback case for old browsers*/
+        div.content{background: #add8e6; /* meower is physically incapable of not adding a fallback case for old browsers*/
             background: url("backing.png") repeat;
             padding: 1em;
             overflow: hidden;}
+        div.content.night{background: black; /* meower is physically incapable of not adding a fallback case for old browsers*/
+            background: url("dbacking.png") repeat;}
         div.titlebar {background:navy;
             color:white;
             height: 2em;
@@ -83,11 +86,16 @@
         main {display: inline-block;
             background: lightgrey;
             padding: 1em;}
+        main.night {background: grey;
+            color: white;}
         aside.sitechanges {background: white;
             padding: 1em;}
+        aside.sitechanges.night {background: black;
+            color: white;}
 
         /* footer */
         footer {vertical-align: bottom;}
+        footer.night {color: white;}
 
         @media screen and (max-width: 1000px) { /* im doin fallback values up there and @media stylins down here */
             nav.desktop {display: none;}
@@ -144,19 +152,99 @@
             hamburgerOpenButton.setAttribute("class","");
         }
 
+        function checkForRedirect() { // checks if the redirect (html5) cookie exists
+            let redirectCookie = findCookie("html5");
+            if (redirectCookie != null && (redirectCookie == "no" || redirectCookie == "yes")) {
+                addCookie("html5", "no");
+            }
+        }
+
+        function toggleLightNight() {//psst, since the default skin is light mode (for now), an empty value for modeCookie means light mode. p.s. i apparently cant put an empty value into a cookie so light for light it is
+            let modeCookie = findCookie("homeskin");
+
+            if ("modeCookie" == null) { //if cookie hasn't been made yet, switch to night as default is light
+                modeCookie = "night";
+                addCookie("homeskin", modeCookie); //use modeCookie's value in case i change it in the future
+                skin(modeCookie, true);
+            } else {
+                skin(modeCookie, false);
+
+                /*if (modeCookie == "night") { //if night mode switch to light
+                    modeCookie = "";
+                } else { //if any other mode switch to night
+                    modeCookie = "night";
+                }*/
+            console.log(modeCookie);
+                modeCookie = modeCookie=="night"?"light":"night";
+
+                skin(modeCookie, true);
+            }
+            console.log(modeCookie);
+            addCookie("homeskin", modeCookie);
+        }
+
+        function loadSkinPageLoad() {
+            let modeCookie = findCookie("homeskin");
+            skin(modeCookie, true);
+        }
+
+        function skin(modeCookie, addRemove) { //skin to change to, true if add false if remove
+            // im usin classname cause i dont needa use the classlist add/remove and also thats more typin
+            /*document.documentElement.className = modeCookie?"":"night";
+            document.getElementById("content").className = modeCookie?"content":"content night";
+            document.getElementById("sitechanges").className = modeCookie?"sitechanges":"sitechanges night";
+            document.getElementById("main").className = modeCookie?"":"night";
+            document.getElementById("footer").className = modeCookie?"":"night";*/
+
+            //ignore the above, that was typed at 1 am 'w'
+
+            let elementList = document.body.getElementsByTagName("*");
+
+            if (addRemove) { //if addin class
+                for (tag of elementList) {
+                    tag.classList.add(modeCookie);
+                }
+                document.body.classList.add(modeCookie);
+                document.documentElement.classList.add(modeCookie);
+            } else { //if removin class (light mode)
+                for (tag of elementList) {
+                    tag.classList.remove(modeCookie);
+                }
+                document.body.classList.remove(modeCookie);
+                document.documentElement.classList.remove(modeCookie);
+            }
+
+        }
+
         function addCookie(key, value) {
             document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + "; max-age=4204206969; path=/";
+        }
+
+        function findCookie(cookieName) {
+            let cook = document.cookie;
+            if (cook != "") {
+                cook = cook.split(";");
+                for (value of cook) {
+                    value = decodeURIComponent(value);
+                    key = value.substring(0, value.indexOf("="));
+                    value = value.substring(value.indexOf("=") + 1);
+                    if (key == cookieName) {
+                        return value;
+                    }
+                }
+            }
+            return null;
         }
     </script>
 
 </head>
 
 
-<body>
+<body onLoad="loadSkinPageLoad();">
 
 <div class="titlebar"><h2 style="margin:0px;">Meowertopia</h2></div>
 
-<div class="content">
+<div class="content" id="content">
 
     <nav class="desktop">
 
@@ -164,7 +252,7 @@
 
         <div class="navscrolly">
 
-            <a class="navlink" href="index.htm" onclick="addCookie('html5','no');"><span class="navlink" style="background:gray"><img src="html4hpg.png" alt="HTML 4 Home" title="HTML 4 Homepage" class="navimg"></span></a
+            <a class="navlink" href="index.htm" onclick="checkForRedirect();"><span class="navlink" style="background:gray"><img src="html4hpg.png" alt="HTML 4 Home" title="HTML 4 Homepage" class="navimg"></span></a
             ><a class="navlink" href="zaburogu/index.html"><span class="navlink" style="background:#3FDFEF"><img src="zaburogu.png" alt="za burogu" title="zaburogu" class="navimg"></span></a
             ><a class="navlink" href="listeningmusics/index.html"><span class="navlink" style="background:orange"><img src="lismusic.png" alt="listeningmusics" title="listeningmusics" class="navimg"></span></a
             ><a class="navlink" href="https://github.com/WangbrosLouie/MyHomeStuff"><span class="navlink" style="background:white"><img src="gitrepo.png" alt="repository" title="GitHub Repository" class="navimg"></span></a
@@ -201,9 +289,15 @@
 
     </nav>
 
-    <main>
+    <main id="main">
     <h1 style="/*width:100%;*/text-align:center;">h o m e</h1>
     
+    <div class="cookiecenter">
+        <h2>Cookie Center</h2>
+        <button onClick="toggleLightNight();">light/night mode toggle</button>
+        to be made someday, gonna let ya delete the redirect cookie and toggle light/dark mode
+    </div>
+
     <h2>Home Page Yap - 7/7/2026</h2>
 
     <p>"Site updates? But we've already made a site updates section."</p>
@@ -235,10 +329,12 @@
 
     </main>
 
-    <aside class="sitechanges">
+    <aside class="sitechanges" id="sitechanges">
         <h2>Site Changes (d/m/y)</h2>
         <ul>
-            <li>make the redirect cookie work for "No." too</li>
+            <li>add a dark mode to this site - 12/7/26</li>
+            <li>rework the blogs style loading to use the stylesheet more</li>
+            <li>make the redirect cookie work for "No." too - 11/7/26</li>
             <li>polish up the meowerese page</li>
             <li>make icon for meowerese page</li>
             <li>make meowerese page not barren - 10/7/26</li>
@@ -263,7 +359,7 @@
         </ul>
     </aside>
 
-    <footer>
+    <footer id="footer">
         <h3>Every page made with Windows Notepad, Kate and Visual Studio Code</h3>
         <h6>i <i>wish</i> i had the patience to be able to make every page with edlin</h6>
         <pre>(m) Copycat 2026 Meower :3 (a.k.a. WangbrosLouie)</pre>
