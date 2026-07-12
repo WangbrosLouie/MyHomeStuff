@@ -185,7 +185,9 @@
 
         function loadSkinPageLoad() {
             let modeCookie = findCookie("homeskin");
-            skin(modeCookie, true);
+            if (modeCookie != null) {
+                skin(modeCookie, true);
+            }
         }
 
         function skin(modeCookie, addRemove) { //skin to change to, true if add false if remove
@@ -222,8 +224,9 @@
 
         function findCookie(cookieName) {
             let cook = document.cookie;
+            console.log(cook);
             if (cook != "") {
-                cook = cook.split(";");
+                cook = cook.split("; ");
                 for (value of cook) {
                     value = decodeURIComponent(value);
                     key = value.substring(0, value.indexOf("="));

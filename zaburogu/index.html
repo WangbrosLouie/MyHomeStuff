@@ -175,7 +175,7 @@
 		function parseCookies() {
 			let cook = document.cookie;
 			if (cook != "") {
-				cook = cook.split(";");
+				cook = cook.split("; ");
 				for (value of cook) {
 					value = decodeURIComponent(value);
 					key = value.substring(0, value.indexOf("="));
@@ -206,7 +206,7 @@
 
 		function deleteCookies() {
 			let cook = document.cookie;
-			cook = cook.split(";");
+			cook = cook.split("; ");
 			for (key of cook) {
 				key = decodeURIComponent(key);
 				key = key.substring(0, key.indexOf("="));
