@@ -34,14 +34,17 @@
             background-repeat: no-repeat;
             border-bottom: 1px solid white;
             display: inline-block;}
+        span.links.night {color: white;
+            background-image: url("links_b.png");}
         span.scrolltext {font-size: 1em;
             background: rgba(255, 255, 255, 0.6);}
         div.navscrolly {border-top: 1px solid white;
-            background: rgba(255,255,255,0.6);
+            background: linear-gradient(to right, transparent 21px, rgba(255,255,255,0.6) 21px);
             overflow-x: auto;
             overflow-y: hidden;
             white-space: nowrap;
-            height: 38.4px;}
+            height: 38px;}
+        div.navscrolly.night {background: linear-gradient(to right, transparent 21px, rgba(127,127,127,0.6) 21px);}
         a.navlink {font-size: 2em;}
         /* img.navimg {vertical-align: middle;} */
         span.navlink {/*width: 15em;*/
@@ -49,7 +52,8 @@
             display: inline-block;
             vertical-align: top;
             border-right:1px solid black;
-            border-radius: 0em 1em 1em 0em;}
+            border-radius: 0em 19px 19px 0em;
+            height: 38px;}
         span.navlink:hover {filter: brightness(80%)}
 
         /* mobile nav stuff */
@@ -92,6 +96,14 @@
             padding: 1em;}
         aside.sitechanges.night {background: black;
             color: white;}
+        table.cookiecenter {width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;}
+        button.cookiedelete {background: red;
+            color: white;}
+        button.cookiedelete.night {background: darkred;}
+        th.cookiecenter, td.cookiecenter {border: 1px solid black;}
+        th.cookiecenter.night, td.cookiecenter.night {border: 1px solid white;}
 
         /* footer */
         footer {vertical-align: bottom;}
@@ -199,6 +211,7 @@
             document.getElementById("footer").className = modeCookie?"":"night";*/
 
             //ignore the above, that was typed at 1 am 'w'
+            //maybe i should do a try catch for classlist to add a fallback for older browsers
 
             let elementList = document.body.getElementsByTagName("*");
 
@@ -216,6 +229,33 @@
                 document.documentElement.classList.remove(modeCookie);
             }
 
+        }
+
+        function populateCookieCenter() {
+			let cook = document.cookie;
+
+			if (cook != "") { //if there are cookies at all
+				cook = cook.split("; ");
+				for (value of cook) {
+					value = decodeURIComponent(value);
+					key = value.substring(0, value.indexOf("="));
+					value = value.substring(value.indexOf("=") + 1);
+					switch (key) {
+						case "skin":
+							oldValue = value;
+							skin(value);
+							if (!currentSkin == oldValue) addCookie(key, currentSkin);
+							cookieSkin = true;
+							break;
+						case "html5":
+							break;
+						default:
+							console.log("some cookie business gone wrong, " + key + " and " + value + " dont bonk out right");
+					}
+				}
+			} else { //whoops! all empty string
+
+            }
         }
 
         function addCookie(key, value) {
@@ -238,6 +278,16 @@
             }
             return null;
         }
+
+		function deleteCookies() {
+			let cook = document.cookie;
+			cook = cook.split("; ");
+			for (key of cook) {
+				key = decodeURIComponent(key);
+				key = key.substring(0, key.indexOf("="));
+				document.cookie = encodeURIComponent(key) + "=; max-age=0; path=/;";
+			}
+		}
     </script>
 
 </head>
@@ -254,16 +304,16 @@
         <span class="links">Links</span><span class="scrolltext">&lt;--scroll--&gt;</span>
 
         <div class="navscrolly">
-
-            <a class="navlink" href="index.htm" onclick="checkForRedirect();"><span class="navlink" style="background:gray"><img src="html4hpg.png" alt="HTML 4 Home" title="HTML 4 Homepage" class="navimg"></span></a
-            ><a class="navlink" href="zaburogu/index.html"><span class="navlink" style="background:#3FDFEF"><img src="zaburogu.png" alt="za burogu" title="zaburogu" class="navimg"></span></a
-            ><a class="navlink" href="listeningmusics/index.html"><span class="navlink" style="background:orange"><img src="lismusic.png" alt="listeningmusics" title="listeningmusics" class="navimg"></span></a
-            ><a class="navlink" href="https://github.com/WangbrosLouie/MyHomeStuff"><span class="navlink" style="background:white"><img src="gitrepo.png" alt="repository" title="GitHub Repository" class="navimg"></span></a
-            ><a class="navlink" href="Phighting!/index.html"><span class="navlink" style="background:white"><img src="phightin.png" alt="take me to the old phighting page!" title="Phighting FanPage" class="navimg"></span></a
-            ><a class="navlink" href="LIFEKITT/INDEX.HTM"><span class="navlink" style="background:#AFEFFF"><img src="lifekitt.png" alt="read my &quot;book&quot;" title="My Life With Kitters" class="navimg"></span></a
-            ><a class="navlink" href="mewsite/index.html"><span class="navlink" style="background:navy"><img src="mewsite.png" alt="lookit me headspace infobase" title="MEW Infobase" class="navimg"></span></a
-            ><a class="navlink" href="https://wangbroslouie.github.io/MySchoolStuff/index.html"><span class="navlink" style="background:white"><img src="myschool.png" alt="MySchoolStuff" title="MySchoolStuff" class="navimg"></span></a
-            ><a class="navlink" href="meoweres/index.html"><span class="navlink" style="background:white">Meowerese</span></a>
+        <!-- perhaps someday i make the myschoolstuff link a relative one so that it works right locally too -->
+            <a class="navlink" href="index.htm" onclick="checkForRedirect();"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, gray 50%);"><img src="html4hpg.png" alt="HTML 4 Home" title="HTML 4 Homepage" class="navimg"></span></a
+            ><a class="navlink" href="zaburogu/index.html"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, #3FDFEF 50%);"><img src="zaburogu.png" alt="za burogu" title="zaburogu" class="navimg"></span></a
+            ><a class="navlink" href="listeningmusics/index.html"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, orange 50%);"><img src="lismusic.png" alt="listeningmusics" title="listeningmusics" class="navimg"></span></a
+            ><a class="navlink" href="https://github.com/WangbrosLouie/MyHomeStuff"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, white 50%);"><img src="gitrepo.png" alt="repository" title="GitHub Repository" class="navimg"></span></a
+            ><a class="navlink" href="Phighting!/index.html"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, white 50%);"><img src="phightin.png" alt="take me to the old phighting page!" title="Phighting FanPage" class="navimg"></span></a
+            ><a class="navlink" href="LIFEKITT/INDEX.HTM"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, #AFEFFF 50%);"><img src="lifekitt.png" alt="read my &quot;book&quot;" title="My Life With Kitters" class="navimg"></span></a
+            ><a class="navlink" href="mewsite/index.html"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, navy 50%);"><img src="mewsite.png" alt="lookit me headspace infobase" title="MEW Infobase" class="navimg"></span></a
+            ><a class="navlink" href="https://wangbroslouie.github.io/MySchoolStuff/index.html"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, white 50%);"><img src="myschool.png" alt="MySchoolStuff" title="MySchoolStuff" class="navimg"></span></a
+            ><a class="navlink" href="meoweres/index.html"><span class="navlink" style="background-image:linear-gradient(to right, transparent 50%, black 50%);"><img src="meoweres.png" alt="Meowerese" title="Meowerese"></span></a>
 
         </div>
 
@@ -286,7 +336,7 @@
             <tr><td class=topbar style="background-color:#AFEFFF;"><a href="LIFEKITT/INDEX.HTM" class="topba">read my "book"</a></td></tr>
             <tr><td class=topbar style="background-color:navy;"><a href="mewsite/index.html" class="topbar">lookit me headspace infobase</a></td></tr>
             <tr><td class="topbar" style="background-color:white;"><a href="https://wangbroslouie.github.io/MySchoolStuff/index.html" class="topba">MySchoolStuff</a></td></tr>
-            <tr><td class="topbar" style="background-color:white;"><a href="meoweres/index.html" class="topba">Meowerese</a></td></tr>
+            <tr><td class="topbar" style="background-color:black;"><a href="meoweres/index.html" class="topbar">Meowerese</a></td></tr>
 
         </tbody></table>
 
@@ -297,9 +347,44 @@
     
     <div class="cookiecenter">
         <h2>Cookie Center</h2>
-        <button onClick="toggleLightNight();">light/night mode toggle</button>
+        <button onclick="toggleLightNight();">light/night mode toggle</button>
         to be made someday, gonna let ya delete the redirect cookie and toggle light/dark mode
+        <hr>
+        <h3>Cookie List (DOESN'T WORK YET)</h3>
+        <button onclick="populateCookieCenter();">Populate!</button>
+        <button onclick="depopulateCookieCenter();">Depopulate!</button>
+        <button onclick="deleteCookies();" class="cookiedelete">Delete All Cookies!!!</button>
+        <table class="cookiecenter" id="cookiecentertable"><tbody>
+            <tr>
+                <th class="cookiecenter" style="width:16em;">Cookie Name</th>
+                <th class="cookiecenter">Value and Description</th>
+                <th class="cookiecenter" style="width:8em;">Actions</th>
+            </tr>
+            <template>
+                <tr>
+                    <td class="cookiecenter" rowspan="2">This is a template.</th>
+                    <td class="cookiecenter">If you're seeing this, update your browser!</td>
+                    <td class="cookiecenter" rowspan="2">
+                        <button onclick="">Assign</button> New Value:<br>
+                        <input type="text" value="Or not, up to you."><br>
+                        <button onclick="" class="cookiedelete">Delete This Cookie!</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cookiecenter">Description: Or not, up to you.</td>
+                </tr>
+            </template>
+        </tbody></table>
     </div>
+
+    <h2>Home Page Yap - 12/7/2026</h2>
+
+    <p>As you may have noticed, I have now added a temporary toggly thingy for light/night mode, which is my own stupid quirky way of saying light/dark mode. How fun.</p>
+    <p>And now, the navbar icons also has proper transparency instead of baked in transparency so that they are transparent in dark mode too. This also fixes how the entire part of the gradient would darken when hovering over the icons too. I still need to give this homepage a favicon lowkey. If you can see above around the time that I write this, you can see the work-in-progress cookie center. If you're reading this later, chances are the cookie center is either fully finished or fully gone. I hope for the former but the latter is always a possibility. I do not know why I am speaking in such a more formal-than-usual manner but oh well, it'll pass hopefully, hehe. The only thing that I gotta do now is to make sure that this yap section stays longer than the to-do list there on the right :bleh:</p>
+
+    <p>p.s. maybe add the meowermojis here so that I can actually use them, that would be cool.</p>
+
+    <p>" '⩌' " - Meower :3</p>
 
     <h2>Home Page Yap - 7/7/2026</h2>
 
@@ -335,11 +420,13 @@
     <aside class="sitechanges" id="sitechanges">
         <h2>Site Changes (d/m/y)</h2>
         <ul>
+            <li>make the desktop navbar image transparencies work with the backgrounds - 12/7/26</li>
+            <li>make favicons for all of the pages</li>
             <li>add a dark mode to this site - 12/7/26</li>
             <li>rework the blogs style loading to use the stylesheet more</li>
             <li>make the redirect cookie work for "No." too - 11/7/26</li>
             <li>polish up the meowerese page</li>
-            <li>make icon for meowerese page</li>
+            <li>make icon for meowerese page - 12/7/26</li>
             <li>make meowerese page not barren - 10/7/26</li>
             <li>draw new images for the mobile hamburger menu maybe</li>
             <li>add cookie to choose what mobile menu style to use</li>
