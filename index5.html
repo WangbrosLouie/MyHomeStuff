@@ -143,7 +143,8 @@
     </style>
 
     <script>
-        //do some light mode dark mode thingy here mrow
+        let cookieCenterState = 0; //USE THIS MEOWER DO NOT FORGET ABOUT IT
+        
         function showHamburger() {
             let hamburger = document.getElementById("hamburger");
             let hamburgerMenu = document.getElementById("hamburger-menu");
@@ -256,6 +257,14 @@
 			} else { //whoops! all empty string
 
             }
+        }
+
+        function depopulateCookieCenter() {
+            //make it add a row sayin to click populate or somethin
+        }
+
+        function resetCookieCenter() { //deletes all the stuff in the cookiecenter table (i cant remember why i split this from depopulatecookiecenter)
+
         }
 
         function addCookie(key, value) {
