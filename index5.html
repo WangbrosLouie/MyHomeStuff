@@ -241,21 +241,12 @@
 					value = decodeURIComponent(value);
 					key = value.substring(0, value.indexOf("="));
 					value = value.substring(value.indexOf("=") + 1);
-					switch (key) {
-						case "skin":
-							oldValue = value;
-							skin(value);
-							if (!currentSkin == oldValue) addCookie(key, currentSkin);
-							cookieSkin = true;
-							break;
-						case "html5":
-							break;
-						default:
-							console.log("some cookie business gone wrong, " + key + " and " + value + " dont bonk out right");
-					}
+                    //make duplicate of table entry template
+                    //fill innerhtml of table entry template
+                    //parent table entry template to table
 				}
 			} else { //whoops! all empty string
-
+                console.log("no cookies in sight");
             }
         }
 
@@ -397,6 +388,8 @@
 
     <p>" '⩌' " - Meower :3</p>
 
+    <hr>
+
     <h2>Home Page Yap - 7/7/2026</h2>
 
     <p>"Site updates? But we've already made a site updates section."</p>
@@ -431,6 +424,10 @@
     <aside class="sitechanges" id="sitechanges">
         <h2>Site Changes (d/m/y)</h2>
         <ul>
+            <li>finish category pages on mew infobase</li>
+            <li>finish echo page on mew infobase</li>
+            <li>finish kitters page on mew infobase</li>
+            <li>add another navbar to the mew infobase for rest of site navigation</li>
             <li>fix the scrollbar for desktop nav making the icons unreadable</li>
             <li>make the desktop navbar image transparencies work with the backgrounds - 12/7/26</li>
             <li>make favicons for all of the pages</li>
