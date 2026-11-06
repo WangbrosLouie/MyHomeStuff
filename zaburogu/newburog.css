@@ -1,8 +1,17 @@
+body { margin: 8px;
+}
+
 /* nav stuff */
 
 nav {}
 
-table.nav {}
+table.topbar { display: inline-block;
+	width: calc(100% - 40px);
+	table-layout: fixed;}
+	
+img.mainicon { width: 32px;
+	
+}
 
 a.nav { display: block;
 	width: 100px;}
