@@ -1,22 +1,63 @@
-body { margin: 8px;
+body { margin: 0;
+	font-family: sans-serif, serif;
 }
+
 
 /* nav stuff */
 
 nav {}
 
-table.topbar { display: inline-block;
-	width: calc(100% - 40px);
-	table-layout: fixed;}
+table.topbar { /*display: block;*/
+	width: 100%;
+	table-layout: fixed;
+	color: white;
+	background: dodgerblue;
+	/*font-weight: bold;*/
+	font-family: sans-serif, serif;}
+	
+td.navicon { width: 32px;
+	
+}
+
+td.nav { width: 7em;
+	
+}
+
+td.navgobutton { width: 3em;
+	
+}
 	
 img.mainicon { width: 32px;
 	
 }
 
 a.nav { display: block;
-	width: 100px;}
+	height: 100%;
+	text-align: center;
+	color: white;
+	text-decoration: none;}
 
-a.nav:hover { background: rgba(255, 255, 255, 0.5);}
+a.nav:hover { background: rgba(255, 255, 255, 0.5);
+	color: white;}
 
 a.nav.home { width: 16px;}
 
+#navdropdown {width: 100%;}
+
+
+/* main stuffs */
+
+main.body { display: block;
+	width: calc(100% - 16em - 1px);
+	padding: 1em;
+	float: right;
+	overflow-y: scroll;
+	
+}
+
+aside.body { display: block;
+	width: 12em;
+	float: left;
+	border-right: 1px solid grey;
+	padding: 1em;
+}
