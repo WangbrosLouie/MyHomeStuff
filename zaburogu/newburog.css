@@ -57,7 +57,20 @@ main.body { display: block;
 
 aside.body { display: block;
 	width: 12em;
+	position: fixed;
 	float: left;
 	border-right: 1px solid grey;
 	padding: 1em;
+}
+
+#welcome { font-weight: bold;
+	font-size: 2em;
+	line-height: 6em;
+}
+
+#pfp { display: inline;
+	width: 6em;
+	height: 6em;
+	border-radius: 100%;
+	
 }

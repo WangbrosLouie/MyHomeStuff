@@ -20,7 +20,7 @@
 	</style>
 	<link rel="stylesheet" href="newburog.css">
 	
-	<script type="text/javascript" src=""></script>
+	<script type="text/javascript" src="newburog.js"></script>
 	<script>
 		//no, bad meower, dont you put every single javascript in here
 	</script>
@@ -39,19 +39,19 @@
 			
 			<td class="navdropdown">
 				<select name="goto" id="navdropdown">
-					<option>HTML5 Home</option>
-					<option>zaburogu Classic</option>
-					<option>listeningmusics</option>
-					<option>GitHub Repo (MyHomeStuff)</option>
-					<option>Phighting Fan Page (2023)</option>
-					<option>My Life With Kitters</option>
-					<option>MEW Infobase</option>
-					<option>GitHub Repo (MySchoolStuff)</option>
-					<option>Meowerese</option>
+					<option value="../index5.html">HTML5 Home</option>
+					<option value="index.html">zaburogu Classic</option>
+					<option value="../listeningmusics/index5.html">listeningmusics</option>
+					<option value="https://github.com/WangbrosLouie/MyHomeStuff">GitHub Repo (MyHomeStuff)</option>
+					<option value="../Phighting!/index.html">Phighting Fan Page (2023)</option>
+					<option value="../LIFEKITT/INDEX.HTM">My Life With Kitters</option>
+					<option value="../mewsite/index5.html">MEW Infobase</option>
+					<option value="https://github.com/WangbrosLouie/MySchoolStuff">GitHub Repo (MySchoolStuff)</option>
+					<option value="../meoweres/index5.html">Meowerese</option>
 				</select>
 			</td>
 			
-			<td class="navgobutton"><input type="button" onclick="" id="gobutton" value="Go!"></input></td>
+			<td class="navgobutton"><input type="button" onclick="nav" id="gobutton" value="Go!"></input></td>
 		
 		</tr></tbody></table>
 		
@@ -71,8 +71,12 @@
 	<main class="body">
 	
 		<header>
-			<img alt="someone" title="Click to change your profile picture!" onclick="" id="pfp">
-			<span style="font-weight:bold;font-size:2em;">Hello, whoeveryouare!</span>
+		
+			<div id="welcome">
+				<img src="zaburogu.png" alt="someone" title="Click to change your profile picture!" onclick="" id="pfp">
+				Hello, <span id="username">whoeveryouare!</span>
+			</div>
+			
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 			a
 		</header>
