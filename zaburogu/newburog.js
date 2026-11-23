@@ -1,3 +1,4 @@
 function nav() {
-	window.location.
+	console.log(document.getElementById("navDropDown").value);
+	window.location.href = document.getElementById("navDropDown").value;
 }

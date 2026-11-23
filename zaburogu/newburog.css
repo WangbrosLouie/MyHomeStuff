@@ -23,7 +23,7 @@ td.nav { width: 7em;
 	
 }
 
-td.navgobutton { width: 3em;
+td.navgobutton { /*width: 3em;*/
 	
 }
 	
@@ -42,7 +42,9 @@ a.nav:hover { background: rgba(255, 255, 255, 0.5);
 
 a.nav.home { width: 16px;}
 
-#navdropdown {width: 100%;}
+#navDropDown {width: 100%;
+	max-width: 20em;
+}
 
 
 /* main stuffs */
