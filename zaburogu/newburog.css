@@ -23,12 +23,28 @@ td.nav { width: 7em;
 	
 }
 
+td.navdropdown { width: 20em;]
+	
+}
+
 td.navgobutton { /*width: 3em;*/
 	
+}
+
+td.widgets {
+	text-align: right;
 }
 	
 img.mainicon { width: 32px;
 	
+}
+
+img.widgetbutton { height: 100%;
+	
+}
+
+img.widgetbutton:hover {
+	background: rgba(0,0,0,0.25);
 }
 
 a.nav { display: block;
@@ -43,7 +59,6 @@ a.nav:hover { background: rgba(255, 255, 255, 0.5);
 a.nav.home { width: 16px;}
 
 #navDropDown {width: 100%;
-	max-width: 20em;
 }
 
 
